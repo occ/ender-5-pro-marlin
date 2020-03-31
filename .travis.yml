@@ -31,7 +31,7 @@ install:
 #   - arduino --install-library "Adafruit ILI9341","Adafruit GFX Library"
 
 script:
-   - build.sh
+   - bash build.sh
    - build_main_platforms
 
 # Generate and deploy documentation
