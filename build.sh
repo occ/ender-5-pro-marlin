@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
-ARDUINO_IDE_VERSION="1.8.12"
+ARDUINO_VERSION="1.8.12"
+ARDUINO_PATH="$HOME/arduino"
 MARLIN_VERSION="2.0.5.3"
 
 # Setup Arduino
-wget https://downloads.arduino.cc/arduino-${ARDUINO_IDE_VERSION}-linux64.tar.xz -O /tmp/arduino.tar.xz
-tar xf /tmp/arduino.tar.xz -C $HOME/arduino/ --strip-components=1
-export PATH="$HOME/arduino:$PATH"
+mkdir $ARDUINO_PATH
+wget https://downloads.arduino.cc/arduino-${ARDUINO_VERSION}-linux64.tar.xz -O- | tar xf - -C $ARDUINO_PATH --strip-components=1
+export PATH="$ARDUINO_PATH:$PATH"
 
 # Setup Marlin
 wget https://github.com/MarlinFirmware/Marlin/archive/${MARLIN_VERSION}.zip
