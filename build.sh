@@ -39,6 +39,7 @@ mkdir $ARTIFACT_DIR
 arduino --pref "build.path=$ARTIFACT_DIR" --verify --board Sanguino:avr:sanguino:cpu=atmega1284p Marlin/Marlin/Marlin.ino
 
 ## Debug – list artifacts
+ls -al $ARTIFACT_DIR
 ls -al Marlin/Marlin
 ls -al
 find . -iname '*.hex'
