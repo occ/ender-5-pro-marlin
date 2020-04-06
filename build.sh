@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
+set -x
 
 ARDUINO_VERSION="1.8.12"
 ARDUINO_PATH="$HOME/arduino"
