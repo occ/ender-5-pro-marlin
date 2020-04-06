@@ -33,7 +33,7 @@ arduino --pref "compiler.warning_flags.all=-Wall -Wextra -Wno-expansion-to-defin
 arduino --install-library "U8glib"
 
 # Build marlin
-arduino --verify --board Sanguino:avr:sanguino:cpu=atmega1284p Marlin/Marlin/Marlin.ino
+arduino --board Sanguino:avr:sanguino:cpu=atmega1284p Marlin/Marlin/Marlin.ino
 
 ## Debug – list artifacts
 ls -al Marlin/Marlin
