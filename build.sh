@@ -9,7 +9,9 @@ mv Marlin-${MARLIN_VERSION} Marlin
 cp configuration/* Marlin/Marlin/
 
 arduino --pref "boardsmanager.additional.urls=https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json,https://adafruit.github.io/arduino-board-index/package_adafruit_index.json,http://arduino.esp8266.com/stable/package_esp8266com_index.json,https://dl.espressif.com/dl/package_esp32_index.json" --save-prefs
-arduino --pref 'build.extra_flags="-Wno-expansion-to-defined"' --save-prefs
+arduino --pref "compiler.warning_flags.more=-Wall -Wno-expansion-to-defined" --save-prefs
+arduino --pref "compiler.warning_flags.all=-Wall -Wextra -Wno-expansion-to-defined" --save-prefs
+
 arduino --install-boards Sanguino:avr
 arduino --install-library "U8glib"
 arduino --verify --board Sanguino:avr:sanguino:cpu=atmega1284p Marlin/Marlin/Marlin.ino
