@@ -38,3 +38,4 @@ arduino --verify --board Sanguino:avr:sanguino:cpu=atmega1284p Marlin/Marlin/Mar
 ## Debug – list artifacts
 ls -al Marlin/Marlin
 ls -al
+find . -iname '*.hex'
