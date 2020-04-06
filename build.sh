@@ -5,6 +5,7 @@ set -x
 
 ARDUINO_VERSION="1.8.12"
 ARDUINO_PATH="$HOME/arduino"
+ARTIFACT_DIR=$HOME/artifacts
 MARLIN_VERSION="2.0.5.3"
 
 # Setup Arduino
@@ -33,7 +34,9 @@ arduino --pref "compiler.warning_flags.all=-Wall -Wextra -Wno-expansion-to-defin
 arduino --install-library "U8glib"
 
 # Build marlin
-arduino --board Sanguino:avr:sanguino:cpu=atmega1284p Marlin/Marlin/Marlin.ino
+
+mkdir $ARTIFACT_DIR
+arduino --pref "build.path=$ARTIFACT_DIR" --verify --board Sanguino:avr:sanguino:cpu=atmega1284p Marlin/Marlin/Marlin.ino
 
 ## Debug – list artifacts
 ls -al Marlin/Marlin
