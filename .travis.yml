@@ -26,3 +26,19 @@ notifications:
   email:
     on_success: change
     on_failure: change
+
+deploy:
+  provider: releases
+  token: l5LfkCsuQPBxWm7ULGMpU5hrAhBVK87cJQ/4AFxk2USzFpZ96w+8ceD2zm2RbtbE/78KhHMxvrdG26DbpzCPgJcBDxcPNNeAGNj87VdXJvoTu6YPVSGhSp/fTZFfHLdZ3fcmJ5Yo+UHiLAbV8k8X695lwOJ0ea9MHzqD8iYoVm0+MbQ9wBRNRTGp4hl0BOC89UNIdas++fuETwBZeOne6UxOuRpXrE+86pBf4U1HtLlJIKV+k4G1GLBsGkdqCD5NFyC+xDyWdFDntDsH/y76cAXEvLhD71yzamWTumklE6JJev6gBFn+Dc2cIJSwnn+BqXqEeIaDFydQmXIJs0Ooeng2cdfRMm/bfMDlVRxGq6kHkV/a561x3+3XiRZ3+hFZ7hj8qPMxzD57IfxyPSfE3bJF0LMg4pkGaXzC8Jy3ml+UN+jqKGrDhzFP62M+WtmZrONRgq7WJtDjRjSajU2VUmpQNMSNhUBkPL3z4BmyDiKvJ52glmQyhIlPHgSDES9XArKkmR1MCdv7GzdBY27n1fFU1lImMvxr6c0PgqeGBlavnrJ1CCbyDILb4zaPbiAkWxPcMWe3MGVL2ul211R1Ni+6MPzTPu1maiasBQ9XjEM9oiVhZtXjGaUWa9ytxVRkD9KBVTCWCLsfOjp4BL4cy72LIgYaKSE8UJLSxZvZrHk=
+  file: artifacts/*.hex
+  overwrite: true
+  draft: true
+  on:
+    tags: true
+
+before_deploy:
+  # Set up git user name and tag this commit
+  - git config --local user.name "YOUR GIT USER NAME"
+  - git config --local user.email "YOUR GIT USER EMAIL"
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - git tag $TRAVIS_TAG
